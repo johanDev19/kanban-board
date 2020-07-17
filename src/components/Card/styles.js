@@ -38,7 +38,6 @@ export const CardAssigneeName = styled.span`
   font-size: 14px;
   color: #3F3939;
   word-break: break-word;
-  margin-left: 12px;
 `
 
 export const CardDueDateContainer = styled.div`
@@ -51,5 +50,4 @@ export const CardDueDateContainer = styled.div`
 export const CardDueDate = styled.span`
   font-size: 14px;
   color: #3F3939; 
-  margin-left: 12px;
 `
