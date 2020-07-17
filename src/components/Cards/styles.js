@@ -30,20 +30,26 @@ export const CardAssigneeContainer = styled.div`
   padding-bottom: 6px;
   margin-top: 45px;
   border-bottom: 1px solid #F2F2F2;
+  display: flex;
+  align-items: center;
 `
 
 export const CardAssigneeName = styled.span`
   font-size: 14px;
   color: #3F3939;
   word-break: break-word;
+  margin-left: 12px;
 `
 
 export const CardDueDateContainer = styled.div`
   padding-top: 4px;
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;
 `
 
 export const CardDueDate = styled.span`
   font-size: 14px;
   color: #3F3939; 
+  margin-left: 12px;
 `
