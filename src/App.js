@@ -6,8 +6,8 @@ import Cards from './components/Cards'
 function App() {
   return (
     <div >
-      <Cards />
       <GlobalStyles />
+      <Cards />
     </div>
   );
 }
