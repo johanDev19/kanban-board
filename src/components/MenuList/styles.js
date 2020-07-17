@@ -17,6 +17,6 @@ export const MenuItem = styled.li`
   align-items: center;
 
   &:last-child {
-    padding-right: 22px;
+    padding-right: 0px;
   }
 `;
