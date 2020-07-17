@@ -1,10 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
+
+import { GlobalStyles } from './GlobalStyles'
+import Card from './components/Card'
 
 function App() {
   return (
     <div >
-      hola desde react
+      <GlobalStyles />
+      <Card />
     </div>
   );
 }
