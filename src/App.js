@@ -1,13 +1,13 @@
 import React from 'react';
 
 import { GlobalStyles } from './GlobalStyles'
-import Cards from './components/Cards'
+import Card from './components/Card'
 
 function App() {
   return (
     <div >
       <GlobalStyles />
-      <Cards />
+      <Card />
     </div>
   );
 }
