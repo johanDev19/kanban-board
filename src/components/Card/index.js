@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Icon from "./../Ui/Icon";
-
 import {
   CardContainer,
   CardTitle,
@@ -15,7 +15,7 @@ import {
 import shapeIcon from "./../../assets/icons/shape-icon.svg";
 import calendarIcon from "./../../assets/icons/calendar-icon.svg";
 
-export default ({ id, handleDragStart, handleDragOver, isDraggable }) => {
+const Card = ({ id, handleDragStart, handleDragOver, isDraggable }) => {
   return (
     <CardContainer
       id={id}
@@ -36,3 +36,12 @@ export default ({ id, handleDragStart, handleDragOver, isDraggable }) => {
     </CardContainer>
   );
 };
+
+Card.prototype = {
+  id: PropTypes.number,
+  handleDragStart: PropTypes.func,
+  handleDragOver: PropTypes.func,
+  isDraggable: PropTypes.string
+};
+
+export default Card;
