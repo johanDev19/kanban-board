@@ -1,9 +1,10 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import { ColumnContainer, ColumnTitle, ColumnTitleContainer } from "./styles";
 import Label from "./../Ui/Label";
 
-export default ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
+const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
   return (
     <ColumnContainer
       id={id}
@@ -18,3 +19,13 @@ export default ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
     </ColumnContainer>
   );
 };
+
+Column.prototype = {
+  children: PropTypes.node,
+  title: PropTypes.string,
+  id: PropTypes.string,
+  handleOnDrop: PropTypes.func,
+  handleOnDragOver: PropTypes.func
+};
+
+export default Column;
