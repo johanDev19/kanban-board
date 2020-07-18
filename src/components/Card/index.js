@@ -1,6 +1,6 @@
 import React from "react";
 
-import Icon from './../Ui/Icon'
+import Icon from "./../Ui/Icon";
 
 import {
   CardContainer,
@@ -9,11 +9,11 @@ import {
   CardAssigneeContainer,
   CardAssigneeName,
   CardDueDateContainer,
-  CardDueDate,
+  CardDueDate
 } from "./styles";
 
-import shapeIcon from './../../assets/icons/shape-icon.svg'
-import calendarIcon from './../../assets/icons/calendar-icon.svg'
+import shapeIcon from "./../../assets/icons/shape-icon.svg";
+import calendarIcon from "./../../assets/icons/calendar-icon.svg";
 
 export default () => {
   return (
@@ -21,12 +21,11 @@ export default () => {
       <CardTitle>Flow Meter Measurement Errors</CardTitle>
       <CardDescription>https://blog.gesrepair.com/</CardDescription>
       <CardAssigneeContainer>
-        <Icon src={shapeIcon} width="16px" />
+        <Icon src={shapeIcon} width={16} marginRight={12} />
         <CardAssigneeName>Longform</CardAssigneeName>
       </CardAssigneeContainer>
       <CardDueDateContainer>
-      <Icon src={calendarIcon} width="16px" />
-
+        <Icon src={calendarIcon} width={16} marginRight={12} />
         <CardDueDate>09/15/2019</CardDueDate>
       </CardDueDateContainer>
     </CardContainer>

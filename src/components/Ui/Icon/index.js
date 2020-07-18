@@ -1,5 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import { Icon } from './styles'
+import { Icon } from "./styles";
 
-export default ({width, src}) => <Icon src={src} width={width}  />
+export default ({ width, src, marginRight }) => (
+  <Icon src={src} width={width} marginRight={marginRight} />
+);
