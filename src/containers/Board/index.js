@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 
 import BoardMenu from "./../BoardMenu";
-import BoardColumns from './../BoardColumns'
+import BoardColumns from "./../BoardColumns";
 
-export default ({ children }) => {
+export default () => {
   return (
     <Fragment>
       <BoardMenu />
