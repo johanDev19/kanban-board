@@ -37,8 +37,8 @@ const Card = ({ id, handleDragStart, handleDragOver, isDraggable }) => {
   );
 };
 
-Card.prototype = {
-  id: PropTypes.number,
+Card.propTypes = {
+  id: PropTypes.string,
   handleDragStart: PropTypes.func,
   handleDragOver: PropTypes.func,
   isDraggable: PropTypes.string
