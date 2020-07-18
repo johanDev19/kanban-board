@@ -20,7 +20,7 @@ const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
   );
 };
 
-Column.prototype = {
+Column.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
   id: PropTypes.string,
