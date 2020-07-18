@@ -15,9 +15,14 @@ import {
 import shapeIcon from "./../../assets/icons/shape-icon.svg";
 import calendarIcon from "./../../assets/icons/calendar-icon.svg";
 
-export default () => {
+export default ({ id, handleDragStart, handleDragOver, isDraggable }) => {
   return (
-    <CardContainer>
+    <CardContainer
+      id={id}
+      draggable={isDraggable}
+      onDragStart={handleDragStart}
+      onDragOver={handleDragOver}
+    >
       <CardTitle>Flow Meter Measurement Errors</CardTitle>
       <CardDescription>https://blog.gesrepair.com/</CardDescription>
       <CardAssigneeContainer>
