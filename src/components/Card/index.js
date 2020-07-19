@@ -48,11 +48,22 @@ const Card = ({
   );
 };
 
+Card.defaultProps = {
+  title: "undefined title",
+  description: "undefined description",
+  tags: [],
+  dueData: new Date()
+};
+
 Card.propTypes = {
-  id: PropTypes.string,
-  handleDragStart: PropTypes.func,
-  handleDragOver: PropTypes.func,
-  isDraggable: PropTypes.string
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  tags: PropTypes.array,
+  dueDate: PropTypes.number,
+  handleDragStart: PropTypes.func.isRequired,
+  handleDragOver: PropTypes.func.isRequired,
+  isDraggable: PropTypes.string.isRequired
 };
 
 export default Card;

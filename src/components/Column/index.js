@@ -20,12 +20,16 @@ const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
   );
 };
 
+Column.defaultProps = {
+  title: ""
+};
+
 Column.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
-  id: PropTypes.string,
-  handleOnDrop: PropTypes.func,
-  handleOnDragOver: PropTypes.func
+  id: PropTypes.string.isRequired,
+  handleOnDrop: PropTypes.func.isRequired,
+  handleOnDragOver: PropTypes.func.isRequired
 };
 
 export default Column;
