@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { formatDate } from "./../../helpers/date";
+
 import Icon from "./../Ui/Icon";
 import {
   CardContainer,
@@ -15,7 +17,16 @@ import {
 import shapeIcon from "./../../assets/icons/shape-icon.svg";
 import calendarIcon from "./../../assets/icons/calendar-icon.svg";
 
-const Card = ({ id, handleDragStart, handleDragOver, isDraggable }) => {
+const Card = ({
+  id,
+  title,
+  description,
+  tags = [],
+  dueDate,
+  handleDragStart,
+  handleDragOver,
+  isDraggable
+}) => {
   return (
     <CardContainer
       id={id}
@@ -23,15 +34,15 @@ const Card = ({ id, handleDragStart, handleDragOver, isDraggable }) => {
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
     >
-      <CardTitle>Flow Meter Measurement Errors</CardTitle>
-      <CardDescription>https://blog.gesrepair.com/</CardDescription>
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
       <CardAssigneeContainer>
         <Icon src={shapeIcon} width={16} marginRight={12} />
-        <CardAssigneeName>Longform</CardAssigneeName>
+        <CardAssigneeName>{tags.join(",")}</CardAssigneeName>
       </CardAssigneeContainer>
       <CardDueDateContainer>
         <Icon src={calendarIcon} width={16} marginRight={12} />
-        <CardDueDate>09/15/2019</CardDueDate>
+        <CardDueDate>{formatDate(dueDate)}</CardDueDate>
       </CardDueDateContainer>
     </CardContainer>
   );

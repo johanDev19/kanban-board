@@ -4,6 +4,8 @@ import Column from "./../../components/Column";
 import { BoardColumnContainer } from "./styles";
 import Card from "./../../components/Card";
 
+import { cardsData } from "./../../assets/data/kanbaCardList";
+
 export default () => {
   const handleDragStart = e => {
     const target = e.target;
@@ -38,12 +40,18 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
       >
-        <Card
-          id="card-1"
-          isDraggable="true"
-          handleDragStart={handleDragStart}
-          handleDragOver={handleDragOver}
-        />
+        {cardsData.map(card => (
+          <Card
+            id={card._id}
+            isDraggable={card.isDraggable.toString()}
+            title={card.title}
+            description={card.description}
+            tags={card.tags}
+            dueDate={card.dueDate}
+            handleDragStart={handleDragStart}
+            handleDragOver={handleDragOver}
+          />
+        ))}
       </Column>
       <Column
         title="Edits Requested"
