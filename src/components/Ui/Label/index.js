@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 import { LabelContainer } from "./styles";
 
-const Label = ({ children }) => {
-  return <LabelContainer>{children}</LabelContainer>;
+const Label = ({ children, color }) => {
+  return <LabelContainer color={color} >{children}</LabelContainer>;
 };
 
 Label.propTypes = {

@@ -3,5 +3,6 @@ import styled from "styled-components";
 export const BoardColumnContainer = styled.div`
   display: flex;
   min-width: 100vh;
-  overflow: scroll;
+  min-height: 100vh;
+  overflow-x: scroll;
 `;

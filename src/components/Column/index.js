@@ -4,7 +4,15 @@ import PropTypes from "prop-types";
 import { ColumnContainer, ColumnTitle, ColumnTitleContainer } from "./styles";
 import Label from "./../Ui/Label";
 
-const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
+const Column = ({
+  children,
+  title,
+  id,
+  handleOnDrop,
+  handleOnDragOver,
+  labelColor,
+  label
+}) => {
   return (
     <ColumnContainer
       id={id}
@@ -12,7 +20,7 @@ const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
       onDragOver={handleOnDragOver}
     >
       <ColumnTitleContainer>
-        <Label>24</Label>
+        <Label color={labelColor}>{label}</Label>
         <ColumnTitle>{title}</ColumnTitle>
       </ColumnTitleContainer>
       {children}
@@ -21,7 +29,8 @@ const Column = ({ children, title, id, handleOnDrop, handleOnDragOver }) => {
 };
 
 Column.defaultProps = {
-  title: ""
+  title: "",
+  labelColor: "#D8D8D8"
 };
 
 Column.propTypes = {
@@ -29,7 +38,9 @@ Column.propTypes = {
   title: PropTypes.string,
   id: PropTypes.string.isRequired,
   handleOnDrop: PropTypes.func.isRequired,
-  handleOnDragOver: PropTypes.func.isRequired
+  handleOnDragOver: PropTypes.func.isRequired,
+  labelColor: PropTypes.string,
+  label: PropTypes.string
 };
 
 export default Column;

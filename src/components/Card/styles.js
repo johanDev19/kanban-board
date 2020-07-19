@@ -9,6 +9,10 @@ export const CardContainer = styled.div`
   border-radius: 4px;
   padding: 18px 12px 0px 12px;
   margin-bottom: 15px;
+
+  &:active {
+    cursor: ${props => (props.draggable === "true" ? "move" : "no-drop")};
+  }
 `;
 
 export const CardTitle = styled.h6`
