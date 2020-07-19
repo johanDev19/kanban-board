@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ColumnContainer = styled.div`
   width: 319px;
-  height: 100vh;
   border-right: 2px solid #eef0f1;
   padding: 10px 12px;
 `;
