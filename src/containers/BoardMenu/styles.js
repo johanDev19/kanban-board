@@ -13,7 +13,7 @@ export const BoardMenuContainer = styled.div`
 
 export const BoardTitleContainer = styled.div`
   display: flex;
-  align-items: center;
+ align-items: center;
 `;
 
 export const BoardTitile = styled.h6`

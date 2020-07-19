@@ -40,7 +40,7 @@ Column.propTypes = {
   handleOnDrop: PropTypes.func.isRequired,
   handleOnDragOver: PropTypes.func.isRequired,
   labelColor: PropTypes.string,
-  label: PropTypes.string
+  label: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 
 export default Column;
