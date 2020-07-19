@@ -3,10 +3,10 @@ import PropTypes from "prop-types";
 
 import { SearchContainer, SearchInput, CloseButton } from "./styles";
 
-const Search = ({ toggle }) => {
+const Search = ({ toggle, onSearchChange }) => {
   return (
     <SearchContainer>
-      <SearchInput autoFocus />
+      <SearchInput autoFocus onChange={e => onSearchChange(e.target.value)} />
       <CloseButton onClick={toggle}>x</CloseButton>
     </SearchContainer>
   );
