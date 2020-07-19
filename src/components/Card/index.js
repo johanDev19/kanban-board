@@ -48,6 +48,13 @@ const Card = ({
   );
 };
 
+Card.defaultProps = {
+  title: "undefined title",
+  description: "undefined description",
+  tags: [],
+  dueData: new Date()
+};
+
 Card.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string,
@@ -57,13 +64,6 @@ Card.propTypes = {
   handleDragStart: PropTypes.func.isRequired,
   handleDragOver: PropTypes.func.isRequired,
   isDraggable: PropTypes.string.isRequired
-};
-
-Card.defaultProps = {
-  title: "undefined title",
-  description: "undefined description",
-  tags: [],
-  dueData: new Date()
 };
 
 export default Card;
