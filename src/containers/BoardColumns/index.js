@@ -40,8 +40,9 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
       >
-        {cardsData.map(card => (
+        {cardsData.map((card, index) => (
           <Card
+            key={index}
             id={card._id}
             isDraggable={card.isDraggable.toString()}
             title={card.title}
