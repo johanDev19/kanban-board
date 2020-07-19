@@ -5,11 +5,10 @@ import { SearchContainer, SearchInput } from "./styles";
 
 import searchIcon from "./../../../assets/icons/search-icon.svg";
 
-export default ({ icon }) => {
+export default () => {
   return (
     <SearchContainer>
       <Icon width={18} marginRight={9} src={searchIcon} />
-
       <SearchInput />
     </SearchContainer>
   );
