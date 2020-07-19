@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Column from "./../../components/Column";
 import { BoardColumnContainer } from "./styles";
 import Card from "./../../components/Card";
 
-import { cardsData } from "./../../assets/data/kanbaCardList";
-
 export default () => {
+  const [kanbaCards, setKanbaCards] = useState([]);
+
   const handleDragStart = e => {
     const target = e.target;
 
@@ -40,9 +40,9 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
         labelColor="#D8D8D8"
-        label={cardsData.length}
+        label={kanbaCards.length}
       >
-        {cardsData.map((card, index) => (
+        {kanbaCards.map((card, index) => (
           <Card
             key={index}
             id={card._id}
