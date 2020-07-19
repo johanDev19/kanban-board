@@ -1,14 +1,15 @@
-import React from 'react';
+import React from "react";
 
-import { GlobalStyles } from './GlobalStyles'
-import Board from './containers/Board'
+import { Store } from "./context/kanba";
+import Board from "./containers/Board";
+import { GlobalStyles } from "./GlobalStyles";
 
 function App() {
   return (
-    <div >
+    <Store>
       <GlobalStyles />
       <Board />
-    </div>
+    </Store>
   );
 }
 
