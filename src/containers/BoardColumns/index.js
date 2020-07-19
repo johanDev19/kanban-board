@@ -62,15 +62,32 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
         labelColor="#FFCCD3"
-        label="1"
-      >
-        <Card
-          id="card-2"
-          isDraggable="true"
-          handleDragStart={handleDragStart}
-          handleDragOver={handleDragOver}
-        />
-      </Column>
+        label="0"
+      ></Column>
+      <Column
+        title="In Revision"
+        id="column-3"
+        handleOnDrop={handleOnDrop}
+        handleOnDragOver={e => e.preventDefault()}
+        labelColor="#FBEDCE"
+        label="0"
+      ></Column>
+      <Column
+        title="Pending Approval"
+        id="column-4"
+        handleOnDrop={handleOnDrop}
+        handleOnDragOver={e => e.preventDefault()}
+        labelColor="#D1E4F9"
+        label="0"
+      ></Column>
+      <Column
+        title="Pending Implementation"
+        id="column-5"
+        handleOnDrop={handleOnDrop}
+        handleOnDragOver={e => e.preventDefault()}
+        labelColor="#FEDFD0"
+        label="0"
+      ></Column>
     </BoardColumnContainer>
   );
 };
