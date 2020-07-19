@@ -40,7 +40,7 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
         labelColor="#D8D8D8"
-        label="24"
+        label={cardsData.length}
       >
         {cardsData.map((card, index) => (
           <Card
@@ -62,7 +62,7 @@ export default () => {
         handleOnDrop={handleOnDrop}
         handleOnDragOver={e => e.preventDefault()}
         labelColor="#FFCCD3"
-        label="0"
+        label="1"
       >
         <Card
           id="card-2"
