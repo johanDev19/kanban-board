@@ -25,3 +25,8 @@ export const MenuItem = styled.li`
     padding-right: 0px;
   }
 `;
+
+export const SearchMenuItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+`;
