@@ -6,6 +6,7 @@ import { MenuContainer, MenuItem } from "./styles";
 import filterIcon from "./../../assets/icons/filter-icon.svg";
 import sortIcon from "./../../assets/icons/sort-icon.svg";
 import searchIcon from "./../../assets/icons/search-icon.svg";
+import Search from "../Ui/Search";
 
 export default () => {
   return (
@@ -20,8 +21,9 @@ export default () => {
           Sort
         </MenuItem>
         <MenuItem>
-          <Icon width={18} marginRight={9} src={searchIcon} />
-          Search
+          <Search icon="search" />
+          {/*<Icon width={18} marginRight={9} src={searchIcon} />
+          Search*/}
         </MenuItem>
       </MenuContainer>
     </Fragment>

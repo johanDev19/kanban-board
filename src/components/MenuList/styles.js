@@ -15,6 +15,11 @@ export const MenuItem = styled.li`
   display: flex;
   padding-right: 40px;
   align-items: center;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.5;
+  }
 
   &:last-child {
     padding-right: 0px;
