@@ -19,11 +19,12 @@ export default () => {
       payload: value
     });
 
-  const handleSearch = value =>
+  const handleSearch = value => {
     kanbaContext.dispatch({
       type: "SET_SEARCH_VALUE",
       payload: value
     });
+  };
 
   return (
     <BoardMenuContainer>

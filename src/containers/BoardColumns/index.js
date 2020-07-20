@@ -11,6 +11,9 @@ export default () => {
   const { state, dispatch } = useContext(Context);
   const [kanbaCards, setKanbaCards] = useState(state.cards);
 
+  const filterCards = title =>
+    state.cards.filter(card => card.title.includes(title));
+
   useEffect(() => {
     fetch(API_URL)
       .then(res => res.json())
@@ -22,6 +25,10 @@ export default () => {
         });
       });
   }, []);
+
+  useEffect(() => {
+    setKanbaCards(filterCards(state.searchValue));
+  }, [state.searchValue]);
 
   const handleDragStart = e => {
     const target = e.target;
