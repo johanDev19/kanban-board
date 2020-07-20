@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from "react";
 
 import Column from "./../../components/Column";
-import { BoardColumnContainer } from "./styles";
 import Card from "./../../components/Card";
+import { API_URL } from "./../../utils/constants";
+
+import { BoardColumnContainer } from "./styles";
 
 export default () => {
   const [kanbaCards, setKanbaCards] = useState([]);
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => setKanbaCards(data.cards));
+  }, []);
 
   const handleDragStart = e => {
     const target = e.target;
