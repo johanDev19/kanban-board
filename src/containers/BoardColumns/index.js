@@ -1,11 +1,34 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Column from "./../../components/Column";
-import { BoardColumnContainer } from "./styles";
 import Card from "./../../components/Card";
+import { API_URL } from "./../../utils/constants";
+
+import { BoardColumnContainer } from "./styles";
+import { Context } from "../../context/kanba";
 
 export default () => {
-  const [kanbaCards, setKanbaCards] = useState([]);
+  const { state, dispatch } = useContext(Context);
+  const [kanbaCards, setKanbaCards] = useState(state.cards);
+
+  const filterCards = title =>
+    state.cards.filter(card => card.title.includes(title));
+
+  useEffect(() => {
+    fetch(API_URL)
+      .then(res => res.json())
+      .then(data => {
+        setKanbaCards(data.cards);
+        dispatch({
+          type: "SET_CARDS",
+          payload: data.cards
+        });
+      });
+  }, []);
+
+  useEffect(() => {
+    setKanbaCards(filterCards(state.searchValue));
+  }, [state.searchValue]);
 
   const handleDragStart = e => {
     const target = e.target;

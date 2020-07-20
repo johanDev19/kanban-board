@@ -5,6 +5,11 @@ const Reducer = (state, action) => {
         ...state,
         cards: action.payload
       };
+    case "REMOVE_CARDS":
+      return {
+        ...state,
+        cards: []
+      };
     case "SET_SEARCH_VALUE":
       return {
         ...state,
@@ -16,11 +21,6 @@ const Reducer = (state, action) => {
         searchValue: null
       };
     case "SET_FILTER_VALUE":
-      return {
-        ...state,
-        filterValue: action.payload
-      };
-    case "REMOVE_FILTER_VALUE":
       return {
         ...state,
         filterValue: action.payload
