@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { formatDate } from "./../../helpers/date";
@@ -24,13 +24,20 @@ const Card = ({
   tag,
   dueDate,
   handleDragStart,
-  handleDragOver,
-  isDraggable
+  handleDragOver
 }) => {
+  const [selected, setSelected] = useState(false);
+
+  const handleSelected = e => {
+    setSelected(!selected);
+  };
+
   return (
     <CardContainer
       id={id}
-      draggable={isDraggable}
+      onClick={handleSelected}
+      draggable="true"
+      data-selected={selected}
       onDragStart={handleDragStart}
       onDragOver={handleDragOver}
     >
@@ -62,8 +69,7 @@ Card.propTypes = {
   tag: PropTypes.string,
   dueDate: PropTypes.number,
   handleDragStart: PropTypes.func.isRequired,
-  handleDragOver: PropTypes.func.isRequired,
-  isDraggable: PropTypes.string.isRequired
+  handleDragOver: PropTypes.func.isRequired
 };
 
 export default Card;
