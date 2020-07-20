@@ -11,8 +11,16 @@ export default () => {
   const { state, dispatch } = useContext(Context);
   const [kanbaCards, setKanbaCards] = useState(state.cards);
 
-  const filterCards = title =>
+  const filterCardsByTitle = title =>
     state.cards.filter(card => card.title.includes(title));
+
+  const filterCardsByTags = tags => {
+    if (tags.length === 0) {
+      return state.cards;
+    }
+
+    return state.cards.filter(card => tags.includes(card.tag));
+  };
 
   useEffect(() => {
     fetch(API_URL)
@@ -27,8 +35,12 @@ export default () => {
   }, []);
 
   useEffect(() => {
-    setKanbaCards(filterCards(state.searchValue));
+    setKanbaCards(filterCardsByTitle(state.searchValue));
   }, [state.searchValue]);
+
+  useEffect(() => {
+    setKanbaCards(filterCardsByTags(state.filterValue));
+  }, [state.filterValue]);
 
   const handleDragStart = e => {
     const target = e.target;
@@ -72,7 +84,7 @@ export default () => {
             isDraggable={card.isDraggable.toString()}
             title={card.title}
             description={card.description}
-            tags={card.tags}
+            tag={card.tag}
             dueDate={card.dueDate}
             handleDragStart={handleDragStart}
             handleDragOver={handleDragOver}

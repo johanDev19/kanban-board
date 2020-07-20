@@ -4,7 +4,7 @@ import Reducer from "./../reducers/kanba";
 const initialStore = {
   cards: [],
   searchValue: null,
-  filterValue: null
+  filterValue: []
 };
 
 const Context = createContext(initialStore);

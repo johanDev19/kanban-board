@@ -11,7 +11,7 @@ import ayesIcon from "./../../assets/icons/ayes-icon.svg";
 export default () => {
   const kanbaContext = useContext(Context);
 
-  const filterOptions = kanbaContext.state.cards.map(card => card.tags);
+  const filterOptions = kanbaContext.state.cards.map(card => card.tag);
 
   const handleFilter = value =>
     kanbaContext.dispatch({
