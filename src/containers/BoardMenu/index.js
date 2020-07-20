@@ -10,7 +10,9 @@ import ayesIcon from "./../../assets/icons/ayes-icon.svg";
 
 export default () => {
   const kanbaContext = useContext(Context);
-  console.log(kanbaContext);
+
+  const filterOptions = kanbaContext.state.cards.map(card => card.tags);
+
   const handleFilter = value =>
     kanbaContext.dispatch({
       type: "SET_FILTER_VALUE",
@@ -29,7 +31,11 @@ export default () => {
         <Icon width={22} src={ayesIcon} marginRight={7} />
         <BoardTitile>Statuses</BoardTitile>
       </BoardTitleContainer>
-      <MenuList handleFilter={handleFilter} handleSearch={handleSearch} />
+      <MenuList
+        handleFilter={handleFilter}
+        handleSearch={handleSearch}
+        filterOptions={filterOptions}
+      />
     </BoardMenuContainer>
   );
 };
