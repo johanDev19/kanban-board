@@ -43,13 +43,15 @@ export default () => {
   }, [state.filterValue]);
 
   const handleDragStart = e => {
-    const target = e.target;
+    document.querySelectorAll('[data-selected="true"]').forEach(element => {
+      console.log(element.id);
 
-    e.dataTransfer.setData("card-reference", target.id);
+      e.dataTransfer.setData(`card-reference-id-${element.id}`, element.id);
 
-    setTimeout(() => {
-      target.style.display = "none";
-    }, 0);
+      setTimeout(() => {
+        element.style.display = "none";
+      }, 0);
+    });
   };
 
   const handleDragOver = e => {
@@ -59,12 +61,12 @@ export default () => {
   const handleOnDrop = e => {
     e.preventDefault();
 
-    const cardId = e.dataTransfer.getData("card-reference");
-    const card = document.getElementById(cardId);
+    const cards = document.querySelectorAll('[data-selected="true"]');
 
-    card.style.display = "block";
-
-    e.target.appendChild(card);
+    cards.forEach(card => {
+      card.style.display = "block";
+      e.target.appendChild(card);
+    });
   };
 
   return (
@@ -81,7 +83,6 @@ export default () => {
           <Card
             key={index}
             id={card._id}
-            isDraggable={card.isDraggable.toString()}
             title={card.title}
             description={card.description}
             tag={card.tag}

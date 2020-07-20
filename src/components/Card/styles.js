@@ -10,6 +10,10 @@ export const CardContainer = styled.div`
   padding: 18px 12px 0px 12px;
   margin-bottom: 15px;
 
+  &[data-selected="true"] {
+    border: 1px solid #2b8dd6 !important;
+  }
+
   &:active {
     cursor: ${props => (props.draggable === "true" ? "move" : "no-drop")};
   }
