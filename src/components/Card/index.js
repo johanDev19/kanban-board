@@ -28,7 +28,7 @@ const Card = ({
 }) => {
   const [selected, setSelected] = useState(false);
 
-  const handleSelected = e => {
+  const handleSelected = () => {
     setSelected(!selected);
   };
 

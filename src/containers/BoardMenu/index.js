@@ -9,18 +9,16 @@ import { BoardMenuContainer, BoardTitleContainer, BoardTitile } from "./styles";
 import ayesIcon from "./../../assets/icons/ayes-icon.svg";
 
 export default () => {
-  const kanbaContext = useContext(Context);
-
-  const filterOptions = kanbaContext.state.cards.map(card => card.tag);
+  const {dispatch} = useContext(Context);
 
   const handleFilter = value =>
-    kanbaContext.dispatch({
+    dispatch({
       type: "SET_FILTER_VALUE",
       payload: value
     });
 
   const handleSearch = value => {
-    kanbaContext.dispatch({
+    dispatch({
       type: "SET_SEARCH_VALUE",
       payload: value
     });
@@ -35,7 +33,7 @@ export default () => {
       <MenuList
         handleFilter={handleFilter}
         handleSearch={handleSearch}
-        filterOptions={filterOptions}
+        filterOptions={[]}
       />
     </BoardMenuContainer>
   );

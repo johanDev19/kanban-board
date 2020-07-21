@@ -1,14 +1,14 @@
 const Reducer = (state, action) => {
   switch (action.type) {
-    case "SET_CARDS":
+    case "SET_BOARD":
       return {
         ...state,
-        cards: action.payload
+        board: action.payload
       };
-    case "REMOVE_CARDS":
+    case "REMOVE_BOARD":
       return {
         ...state,
-        cards: []
+        board: []
       };
     case "SET_SEARCH_VALUE":
       return {
