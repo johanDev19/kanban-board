@@ -2,7 +2,13 @@ import React, { useEffect, useState, useContext } from "react";
 
 import Column from "./../../components/Column";
 import Card from "./../../components/Card";
-import { API_URL } from "./../../utils/constants";
+import {
+  handleDragOver,
+  handleOnDrop,
+  handleDragStart,
+} from "./../../utils/dragAndDrop";
+import { filterCardsByTags, filterCardsByTitle } from "./../../utils/filter";
+import { getCards } from "./../../services/kanba";
 
 import { BoardColumnContainer } from "./styles";
 import { Context } from "../../context/kanba";
@@ -11,63 +17,23 @@ export default () => {
   const { state, dispatch } = useContext(Context);
   const [kanbaCards, setKanbaCards] = useState(state.cards);
 
-  const filterCardsByTitle = title =>
-    state.cards.filter(card => card.title.includes(title));
-
-  const filterCardsByTags = tags => {
-    if (tags.length === 0) {
-      return state.cards;
-    }
-
-    return state.cards.filter(card => tags.includes(card.tag));
-  };
-
   useEffect(() => {
-    fetch(API_URL)
-      .then(res => res.json())
-      .then(data => {
-        setKanbaCards(data.cards);
-        dispatch({
-          type: "SET_CARDS",
-          payload: data.cards
-        });
+    getCards().then((data) => {
+      setKanbaCards(data.cards);
+      dispatch({
+        type: "SET_CARDS",
+        payload: data.cards,
       });
-  }, []);
+    });
+  }, [dispatch]);
 
   useEffect(() => {
-    setKanbaCards(filterCardsByTitle(state.searchValue));
-  }, [state.searchValue]);
+    setKanbaCards(filterCardsByTitle(state.searchValue, state.cards));
+  }, [state.cards, state.searchValue]);
 
   useEffect(() => {
-    setKanbaCards(filterCardsByTags(state.filterValue));
-  }, [state.filterValue]);
-
-  const handleDragStart = e => {
-    document.querySelectorAll('[data-selected="true"]').forEach(element => {
-      console.log(element.id);
-
-      e.dataTransfer.setData(`card-reference-id-${element.id}`, element.id);
-
-      setTimeout(() => {
-        element.style.display = "none";
-      }, 0);
-    });
-  };
-
-  const handleDragOver = e => {
-    e.stopPropagation();
-  };
-
-  const handleOnDrop = e => {
-    e.preventDefault();
-
-    const cards = document.querySelectorAll('[data-selected="true"]');
-
-    cards.forEach(card => {
-      card.style.display = "block";
-      e.target.appendChild(card);
-    });
-  };
+    setKanbaCards(filterCardsByTags(state.filterValue, state.cards));
+  }, [state.cards, state.filterValue]);
 
   return (
     <BoardColumnContainer>
@@ -75,7 +41,7 @@ export default () => {
         title="Requested"
         id="column-1"
         handleOnDrop={handleOnDrop}
-        handleOnDragOver={e => e.preventDefault()}
+        handleOnDragOver={(e) => e.preventDefault()}
         labelColor="#D8D8D8"
         label={kanbaCards.length}
       >
@@ -96,7 +62,7 @@ export default () => {
         title="Edits Requested"
         id="column-2"
         handleOnDrop={handleOnDrop}
-        handleOnDragOver={e => e.preventDefault()}
+        handleOnDragOver={(e) => e.preventDefault()}
         labelColor="#FFCCD3"
         label="0"
       ></Column>
@@ -104,7 +70,7 @@ export default () => {
         title="In Revision"
         id="column-3"
         handleOnDrop={handleOnDrop}
-        handleOnDragOver={e => e.preventDefault()}
+        handleOnDragOver={(e) => e.preventDefault()}
         labelColor="#FBEDCE"
         label="0"
       ></Column>
@@ -112,7 +78,7 @@ export default () => {
         title="Pending Approval"
         id="column-4"
         handleOnDrop={handleOnDrop}
-        handleOnDragOver={e => e.preventDefault()}
+        handleOnDragOver={(e) => e.preventDefault()}
         labelColor="#D1E4F9"
         label="0"
       ></Column>
@@ -120,7 +86,7 @@ export default () => {
         title="Pending Implementation"
         id="column-5"
         handleOnDrop={handleOnDrop}
-        handleOnDragOver={e => e.preventDefault()}
+        handleOnDragOver={(e) => e.preventDefault()}
         labelColor="#FEDFD0"
         label="0"
       ></Column>
