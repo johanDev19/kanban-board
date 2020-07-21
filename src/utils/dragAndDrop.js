@@ -7,14 +7,11 @@ export const handleOnDrop = (e) => {
     const cardId = e.dataTransfer.getData("card-reference");
     const card = document.getElementById(cardId);
     card.style.display = "block";
-
-    return e.target.appendChild(card);
   }
 
   cards.forEach((card) => {
     card.style.display = "block";
-    card.setAttribute('data-selected', "false")
-    e.target.appendChild(card);
+    card.setAttribute("data-selected", "false");
   });
 };
 
