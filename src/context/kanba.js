@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react";
 import Reducer from "./../reducers/kanba";
 
 const initialStore = {
-  cards: [],
+  board: [],
   searchValue: null,
   filterValue: []
 };
