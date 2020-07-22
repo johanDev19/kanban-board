@@ -17,7 +17,9 @@ export const CloseButton = styled.span`
   font-weight: bold;
   color: #b2b6b2;
   position: absolute;
-  top: 1px;
-  right: 10px;
+  top: -3px;
+  right: 5px;
   font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
 `;
