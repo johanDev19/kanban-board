@@ -6,7 +6,7 @@ export const FilterContainer = styled.div`
   position: relative;
 `;
 
-export const Result = styled.div`
+export const Options = styled.div`
   position: absolute;
   top: 23px;
   left: 0px;

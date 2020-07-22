@@ -3,27 +3,32 @@ const Reducer = (state, action) => {
     case "SET_BOARD":
       return {
         ...state,
-        board: action.payload
+        board: action.payload,
       };
     case "REMOVE_BOARD":
       return {
         ...state,
-        board: []
+        board: [],
       };
     case "SET_SEARCH_VALUE":
       return {
         ...state,
-        searchValue: action.payload
+        searchValue: action.payload,
       };
     case "REMOVE_SEARCH_VALUE":
       return {
         ...state,
-        searchValue: null
+        searchValue: null,
       };
     case "SET_FILTER_VALUE":
       return {
         ...state,
-        filterValue: action.payload
+        filterValue: action.payload,
+      };
+    case "REMOVE_FILTER_VALUE":
+      return {
+        ...state,
+        filterValue: [],
       };
     default:
       return state;
