@@ -7,8 +7,8 @@ import { GlobalStyles } from "./GlobalStyles";
 function App() {
   return (
     <Store>
-      <GlobalStyles />
       <Board />
+      <GlobalStyles />
     </Store>
   );
 }
