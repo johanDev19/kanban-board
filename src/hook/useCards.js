@@ -9,20 +9,20 @@ export function useCardsPosition() {
   const changeCardPosition = (cardId, columnId) => {
     let boardMutated = state.board;
     const columnToMove = state.board.filter(
-      (column) => column._id === columnId
+      column => column._id === columnId
     )[0];
     const { column, card } = findCard(state.board, cardId);
 
-    boardMutated[columnToMove.index].cards.push(card);
     boardMutated[column.index].cards = removeCard(boardMutated, column, card);
+    boardMutated[columnToMove.index].cards.push(card);
 
     dispatch({
       type: "SET_BOARD",
-      payload: boardMutated,
+      payload: boardMutated
     });
   };
 
   return {
-    changeCardPosition,
+    changeCardPosition
   };
 }
