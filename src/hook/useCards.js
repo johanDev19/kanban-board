@@ -11,7 +11,6 @@ export function useCardsPosition() {
     const columnToMove = state.board.filter(
       column => column._id === columnId
     )[0];
-    console.log(columnId, columnToMove);
     const { column, card } = findCard(state.board, cardId);
 
     boardMutated[column.index].cards = removeCard(boardMutated, column, card);
